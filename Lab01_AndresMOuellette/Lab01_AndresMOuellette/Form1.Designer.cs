@@ -37,6 +37,8 @@
 			this.TSProgressBar = new System.Windows.Forms.ToolStripProgressBar();
 			this.pictureBox = new System.Windows.Forms.PictureBox();
 			this.richTextBox = new System.Windows.Forms.RichTextBox();
+			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
 			this.toolStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
 			this.SuspendLayout();
@@ -54,7 +56,7 @@
             this.TSProgressBar});
 			this.toolStrip1.Location = new System.Drawing.Point(0, 0);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(437, 25);
+			this.toolStrip1.Size = new System.Drawing.Size(406, 25);
 			this.toolStrip1.TabIndex = 0;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -66,6 +68,7 @@
 			this.TSLoadImgButton.Name = "TSLoadImgButton";
 			this.TSLoadImgButton.Size = new System.Drawing.Size(23, 22);
 			this.TSLoadImgButton.Text = "TSLoadImgButton";
+			this.TSLoadImgButton.Click += new System.EventHandler(this.TSLoadImgButton_Click);
 			// 
 			// TSImgOrTxtComboBox
 			// 
@@ -113,6 +116,10 @@
 			this.richTextBox.TabIndex = 2;
 			this.richTextBox.Text = "";
 			// 
+			// openFileDialog
+			// 
+			this.openFileDialog.FileName = "openFileDialog";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,6 +149,8 @@
 		private System.Windows.Forms.ToolStripProgressBar TSProgressBar;
 		private System.Windows.Forms.PictureBox pictureBox;
 		private System.Windows.Forms.RichTextBox richTextBox;
+		private System.Windows.Forms.OpenFileDialog openFileDialog;
+		private System.Windows.Forms.SaveFileDialog saveFileDialog;
 	}
 }
 

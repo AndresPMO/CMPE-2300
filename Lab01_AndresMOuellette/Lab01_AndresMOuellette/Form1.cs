@@ -21,5 +21,20 @@ namespace Lab01_AndresMOuellette
 		{
 
 		}
+
+		private void TSLoadImgButton_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				if(openFileDialog.ShowDialog() == DialogResult.OK)
+				{
+					pictureBox.Load(openFileDialog.FileName);
+				}
+			}
+			catch
+			{
+				MessageBox.Show("Unable to open image!", Text);
+			}
+		}
 	}
 }

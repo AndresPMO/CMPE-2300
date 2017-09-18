@@ -83,6 +83,10 @@ namespace Lab01_AndresMOuellette
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("No Image Detected!", Text);
+            }
             Invoke(new delvoidBitmap(Decode), canv);
         }
 
@@ -93,6 +97,8 @@ namespace Lab01_AndresMOuellette
 				if(openFileDialog.ShowDialog() == DialogResult.OK)
 				{
 					pictureBox.Load(openFileDialog.FileName);
+                    pictureBox.Height = pictureBox.Image.Height;
+                    pictureBox.Width = pictureBox.Image.Width;
 				}
 			}
 			catch

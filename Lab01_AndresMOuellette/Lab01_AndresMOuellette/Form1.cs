@@ -30,40 +30,56 @@ namespace Lab01_AndresMOuellette
             tdecode.Start(bm);
         }
 
-        private void Decode(Bitmap canv)
+        private void Decode(object canv)
         {
-            for (int y = 0; y < canv.Height; y++)
+            if (canv is Bitmap)
             {
-                for (int x = 0; x < canv.Width; x++)
+                Bitmap tempBM = (Bitmap)canv;
+                for (int y = 0; y < tempBM.Height; y++)
                 {
-                    byte R = canv.GetPixel(x, y).R;
-                    byte G = canv.GetPixel(x, y).G;
-                    byte B = canv.GetPixel(x, y).B;
+                    for (int x = 0; x < tempBM.Width; x++)
+                    {
+                        byte R = tempBM.GetPixel(x, y).R;
+                        byte G = tempBM.GetPixel(x, y).G;
+                        byte B = tempBM.GetPixel(x, y).B;
 
-                    if (TSRGBComboBox.SelectedItem == "R")
-                    {
-                        if ((R & 1) == 1)
+                        if (TSRGBComboBox.SelectedItem.ToString() == "R")
                         {
-                            canv.SetPixel(x, y, Color.FromArgb(1, 255, 0, 0));
+                            if ((R & 1) == 1)
+                            {
+                                tempBM.SetPixel(x, y, Color.FromArgb(1, 255, 0, 0));
+                            }
+                            else
+                            {
+                                tempBM.SetPixel(x, y, Color.Black);
+                            }
                         }
-                    }
-                    else if (TSRGBComboBox.SelectedItem == "G")
-                    {
-                        if ((G & 1) == 1)
+                        else if (TSRGBComboBox.SelectedItem.ToString() == "G")
                         {
-                            canv.SetPixel(x, y, Color.FromArgb(1, 0, 255, 0));
+                            if ((G & 1) == 1)
+                            {
+                                tempBM.SetPixel(x, y, Color.FromArgb(1, 0, 255, 0));
+                            }
+                            else
+                            {
+                                tempBM.SetPixel(x, y, Color.Black);
+                            }
                         }
-                    }
-                    else if (TSRGBComboBox.SelectedItem == "B")
-                    {
-                        if ((B & 1) == 1)
+                        else if (TSRGBComboBox.SelectedItem.ToString() == "B")
                         {
-                            canv.SetPixel(x, y, Color.FromArgb(1, 0, 0, 255));
+                            if ((B & 1) == 1)
+                            {
+                                tempBM.SetPixel(x, y, Color.FromArgb(1, 0, 0, 255));
+                            }
+                            else
+                            {
+                                tempBM.SetPixel(x, y, Color.Black);
+                            }
                         }
-                    }
-                    else if (TSRGBComboBox.SelectedItem == "RGB")
-                    {
+                        else if (TSRGBComboBox.SelectedItem.ToString() == "RGB")
+                        {
 
+                        }
                     }
                 }
             }

@@ -48,6 +48,7 @@
             this.toolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TSLoadImgButton,
             this.TSImgOrTxtComboBox,
@@ -56,7 +57,8 @@
             this.TSProgressBar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(406, 25);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.toolStrip1.Size = new System.Drawing.Size(581, 33);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -66,19 +68,27 @@
             this.TSLoadImgButton.Image = ((System.Drawing.Image)(resources.GetObject("TSLoadImgButton.Image")));
             this.TSLoadImgButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TSLoadImgButton.Name = "TSLoadImgButton";
-            this.TSLoadImgButton.Size = new System.Drawing.Size(23, 22);
+            this.TSLoadImgButton.Size = new System.Drawing.Size(28, 30);
             this.TSLoadImgButton.Text = "TSLoadImgButton";
             this.TSLoadImgButton.Click += new System.EventHandler(this.TSLoadImgButton_Click);
             // 
             // TSImgOrTxtComboBox
             // 
+            this.TSImgOrTxtComboBox.Items.AddRange(new object[] {
+            "Decode Image",
+            "Decode Text"});
             this.TSImgOrTxtComboBox.Name = "TSImgOrTxtComboBox";
-            this.TSImgOrTxtComboBox.Size = new System.Drawing.Size(121, 25);
+            this.TSImgOrTxtComboBox.Size = new System.Drawing.Size(180, 33);
             // 
             // TSRGBComboBox
             // 
+            this.TSRGBComboBox.Items.AddRange(new object[] {
+            "R",
+            "G",
+            "B",
+            "RGB"});
             this.TSRGBComboBox.Name = "TSRGBComboBox";
-            this.TSRGBComboBox.Size = new System.Drawing.Size(121, 25);
+            this.TSRGBComboBox.Size = new System.Drawing.Size(180, 33);
             // 
             // TSGoButton
             // 
@@ -86,23 +96,24 @@
             this.TSGoButton.Image = ((System.Drawing.Image)(resources.GetObject("TSGoButton.Image")));
             this.TSGoButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TSGoButton.Name = "TSGoButton";
-            this.TSGoButton.Size = new System.Drawing.Size(23, 22);
+            this.TSGoButton.Size = new System.Drawing.Size(28, 30);
             this.TSGoButton.Text = "TSGoButton";
             this.TSGoButton.Click += new System.EventHandler(this.TSGoButton_Click);
             // 
             // TSProgressBar
             // 
             this.TSProgressBar.Name = "TSProgressBar";
-            this.TSProgressBar.Size = new System.Drawing.Size(100, 22);
+            this.TSProgressBar.Size = new System.Drawing.Size(100, 30);
             // 
             // pictureBox
             // 
             this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox.Location = new System.Drawing.Point(13, 29);
+            this.pictureBox.Location = new System.Drawing.Point(20, 45);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(398, 339);
+            this.pictureBox.Size = new System.Drawing.Size(597, 522);
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             // 
@@ -110,9 +121,10 @@
             // 
             this.richTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox.Location = new System.Drawing.Point(13, 375);
+            this.richTextBox.Location = new System.Drawing.Point(20, 577);
+            this.richTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(398, 97);
+            this.richTextBox.Size = new System.Drawing.Size(595, 147);
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
             // 
@@ -122,13 +134,14 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 484);
+            this.ClientSize = new System.Drawing.Size(634, 745);
             this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.toolStrip1);
-            this.MinimumSize = new System.Drawing.Size(439, 523);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimumSize = new System.Drawing.Size(648, 774);
             this.Name = "Form1";
             this.Text = "Form1";
             this.toolStrip1.ResumeLayout(false);

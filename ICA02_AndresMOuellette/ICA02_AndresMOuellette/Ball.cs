@@ -42,10 +42,13 @@ namespace ICA02_AndresMOuellette
         }
         public void MoveBall(CDrawer canv)
         {
-            if ((Location.X + _xSpeed) > 800 || (Location.X + _xSpeed) < 0) //canv.ActualWidth doesnt work!
+            if ((Location.X + _xSpeed) > canv.m_ciWidth || (Location.X + _xSpeed) < 0) //canv.ActualWidth doesnt work!
                 _xSpeed *= -1;
-            if ((Location.Y + _ySpeed) > 600 || (Location.Y + _ySpeed) < 0) //canv.ActualHeight doesnt work!
+            if ((Location.Y + _ySpeed) > canv.m_ciHeight || (Location.Y + _ySpeed) < 0) //canv.ActualHeight doesnt work!
                 _ySpeed *= -1;
+
+            _centre.X += _xSpeed;
+            _centre.Y += _ySpeed;
         }
         public void ShowBall(CDrawer canv)
         {

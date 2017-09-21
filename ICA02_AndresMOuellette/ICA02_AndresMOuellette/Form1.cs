@@ -18,7 +18,7 @@ namespace ICA02_AndresMOuellette
             InitializeComponent();
         }
 
-        public CDrawer canvas = new CDrawer();
+        public CDrawer canvas = new CDrawer(800, 600, false, false);
         List<Ball> balls = new List<Ball>(); 
 
         private void OpacityTrackBar_Scroll(object sender, EventArgs e)
@@ -43,11 +43,16 @@ namespace ICA02_AndresMOuellette
         private void timer_Tick(object sender, EventArgs e)
         {
             canvas.Clear();
-            Point p;
-            if(canvas.GetLastMouseLeftClick(out p))
+            if(canvas.GetLastMouseLeftClick(out Point p))
             {
                 balls.Add(new Ball(p));
             }
+            foreach(Ball ball in balls)
+            {
+                ball.MoveBall(canvas);
+                ball.ShowBall(canvas);
+            }
+            canvas.Render();
         }
     }
 }

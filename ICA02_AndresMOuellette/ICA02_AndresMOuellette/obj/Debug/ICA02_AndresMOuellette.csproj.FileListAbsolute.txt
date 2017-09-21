@@ -8,3 +8,14 @@ C:\Users\amartinouellett1\Desktop\CMPE 2300\ICAs\ICA02_AndresMOuellette\ICA02_An
 C:\Users\amartinouellett1\Desktop\CMPE 2300\ICAs\ICA02_AndresMOuellette\ICA02_AndresMOuellette\obj\Debug\ICA02_AndresMOuellette.csproj.CoreCompileInputs.cache
 C:\Users\amartinouellett1\Desktop\CMPE 2300\ICAs\ICA02_AndresMOuellette\ICA02_AndresMOuellette\obj\Debug\ICA02_AndresMOuellette.exe
 C:\Users\amartinouellett1\Desktop\CMPE 2300\ICAs\ICA02_AndresMOuellette\ICA02_AndresMOuellette\obj\Debug\ICA02_AndresMOuellette.pdb
+C:\Users\Andres\Desktop\ICA02_AndresMOuellette\ICA02_AndresMOuellette\bin\Debug\ICA02_AndresMOuellette.exe.config
+C:\Users\Andres\Desktop\ICA02_AndresMOuellette\ICA02_AndresMOuellette\bin\Debug\ICA02_AndresMOuellette.exe
+C:\Users\Andres\Desktop\ICA02_AndresMOuellette\ICA02_AndresMOuellette\bin\Debug\ICA02_AndresMOuellette.pdb
+C:\Users\Andres\Desktop\ICA02_AndresMOuellette\ICA02_AndresMOuellette\bin\Debug\GDIDrawer.dll
+C:\Users\Andres\Desktop\ICA02_AndresMOuellette\ICA02_AndresMOuellette\obj\Debug\ICA02_AndresMOuellette.csprojResolveAssemblyReference.cache
+C:\Users\Andres\Desktop\ICA02_AndresMOuellette\ICA02_AndresMOuellette\obj\Debug\ICA02_AndresMOuellette.Form1.resources
+C:\Users\Andres\Desktop\ICA02_AndresMOuellette\ICA02_AndresMOuellette\obj\Debug\ICA02_AndresMOuellette.Properties.Resources.resources
+C:\Users\Andres\Desktop\ICA02_AndresMOuellette\ICA02_AndresMOuellette\obj\Debug\ICA02_AndresMOuellette.csproj.GenerateResource.Cache
+C:\Users\Andres\Desktop\ICA02_AndresMOuellette\ICA02_AndresMOuellette\obj\Debug\ICA02_AndresMOuellette.csproj.CoreCompileInputs.cache
+C:\Users\Andres\Desktop\ICA02_AndresMOuellette\ICA02_AndresMOuellette\obj\Debug\ICA02_AndresMOuellette.exe
+C:\Users\Andres\Desktop\ICA02_AndresMOuellette\ICA02_AndresMOuellette\obj\Debug\ICA02_AndresMOuellette.pdb

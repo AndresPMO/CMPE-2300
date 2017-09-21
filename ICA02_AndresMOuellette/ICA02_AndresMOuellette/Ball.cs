@@ -42,7 +42,10 @@ namespace ICA02_AndresMOuellette
         }
         public void MoveBall(CDrawer canv)
         {
-
+            if ((Location.X + _xSpeed) > 800 || (Location.X + _xSpeed) < 0) //canv.ActualWidth doesnt work!
+                _xSpeed *= -1;
+            if ((Location.Y + _ySpeed) > 600 || (Location.Y + _ySpeed) < 0) //canv.ActualHeight doesnt work!
+                _ySpeed *= -1;
         }
         public void ShowBall(CDrawer canv)
         {
@@ -50,7 +53,7 @@ namespace ICA02_AndresMOuellette
         }
         public override string ToString()
         {
-            return Location.ToString() + ;
+            return Location.ToString() + " - Vel: [" + _xSpeed.ToString() + ", " + _ySpeed.ToString() + "], Opacity: " + Opacity.ToString();
         }
     }
 }

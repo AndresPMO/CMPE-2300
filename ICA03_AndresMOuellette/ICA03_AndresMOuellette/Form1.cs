@@ -44,7 +44,7 @@ namespace ICA03_AndresMOuellette
                         balls[x].ShowBall();
                     }
                     Ball.Loading = false;
-                    Thread.Sleep(100);
+                    Thread.Sleep(50);
                 }
             }
         }

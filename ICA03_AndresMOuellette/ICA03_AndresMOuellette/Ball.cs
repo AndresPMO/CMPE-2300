@@ -19,8 +19,14 @@ namespace ICA03_AndresMOuellette
             get { return _Radius; }
             set
             {
-                if (Math.Abs(value) < (canvas.m_ciWidth / 4) && Math.Abs(value) < (canvas.m_ciHeight / 4))
-                    Math.Abs(value);
+                if (Math.Abs(value) <= (canvas.m_ciWidth / 4) && Math.Abs(value) <= (canvas.m_ciHeight / 4))
+                {
+                    _Radius = Math.Abs(value);
+                }
+                else
+                {
+                    _Radius = (canvas.m_ciWidth / 4);
+                }
             }
         }
 
@@ -78,16 +84,19 @@ namespace ICA03_AndresMOuellette
             }
             _location.X += _xSpeed;
             _location.Y += _ySpeed;
-
+            
             if ((_location.X + Radius) > canvas.m_ciWidth)
-                _location.X -= (_location.X + Radius - canvas.m_ciWidth);   //right
+                _location.X -= Radius;                      //right
+
             if ((_location.X - Radius) < 0)
-                _location.X -= (_location.X - Radius);                      //left
+                _location.X += Radius;                      //left
 
             if ((_location.Y + Radius) > canvas.m_ciHeight)
-                _location.Y -= (_location.Y + Radius - canvas.m_ciHeight);   //down
+                _location.Y -= Radius;                      //down
+
             if ((_location.Y - Radius) < canvas.m_ciHeight)
-                _location.X -= (_location.Y - Radius);   //up
+                _location.X += Radius;                      //up
+            
         }
     }
 }

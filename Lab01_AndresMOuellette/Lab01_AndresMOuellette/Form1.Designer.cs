@@ -57,7 +57,7 @@
             this.TSProgressBar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(387, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(383, 31);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -102,7 +102,7 @@
             // TSProgressBar
             // 
             this.TSProgressBar.Name = "TSProgressBar";
-            this.TSProgressBar.Size = new System.Drawing.Size(67, 19);
+            this.TSProgressBar.Size = new System.Drawing.Size(67, 28);
             // 
             // pictureBox
             // 
@@ -111,7 +111,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.Location = new System.Drawing.Point(13, 29);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(398, 339);
+            this.pictureBox.Size = new System.Drawing.Size(492, 417);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             // 
@@ -119,9 +120,9 @@
             // 
             this.richTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox.Location = new System.Drawing.Point(13, 375);
+            this.richTextBox.Location = new System.Drawing.Point(13, 453);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(398, 97);
+            this.richTextBox.Size = new System.Drawing.Size(492, 97);
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
             // 
@@ -133,7 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 484);
+            this.ClientSize = new System.Drawing.Size(517, 562);
             this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.toolStrip1);

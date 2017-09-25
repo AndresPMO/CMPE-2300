@@ -8,3 +8,12 @@ C:\Users\Andres\Desktop\NAIT\CMPE 2300\LABs\Lab01_AndresMOuellette\Lab01_AndresM
 C:\Users\Andres\Desktop\NAIT\CMPE 2300\LABs\Lab01_AndresMOuellette\Lab01_AndresMOuellette\obj\Debug\Lab01_AndresMOuellette.csproj.CoreCompileInputs.cache
 C:\Users\Andres\Desktop\NAIT\CMPE 2300\LABs\Lab01_AndresMOuellette\Lab01_AndresMOuellette\obj\Debug\Lab01_AndresMOuellette.exe
 C:\Users\Andres\Desktop\NAIT\CMPE 2300\LABs\Lab01_AndresMOuellette\Lab01_AndresMOuellette\obj\Debug\Lab01_AndresMOuellette.pdb
+C:\Users\amartinouellett1\Desktop\amartinouellett1\CMPE 2300\LABs\Lab01_AndresMOuellette\Lab01_AndresMOuellette\bin\Debug\Lab01_AndresMOuellette.exe.config
+C:\Users\amartinouellett1\Desktop\amartinouellett1\CMPE 2300\LABs\Lab01_AndresMOuellette\Lab01_AndresMOuellette\bin\Debug\Lab01_AndresMOuellette.exe
+C:\Users\amartinouellett1\Desktop\amartinouellett1\CMPE 2300\LABs\Lab01_AndresMOuellette\Lab01_AndresMOuellette\bin\Debug\Lab01_AndresMOuellette.pdb
+C:\Users\amartinouellett1\Desktop\amartinouellett1\CMPE 2300\LABs\Lab01_AndresMOuellette\Lab01_AndresMOuellette\obj\Debug\Lab01_AndresMOuellette.csprojResolveAssemblyReference.cache
+C:\Users\amartinouellett1\Desktop\amartinouellett1\CMPE 2300\LABs\Lab01_AndresMOuellette\Lab01_AndresMOuellette\obj\Debug\Lab01_AndresMOuellette.Form1.resources
+C:\Users\amartinouellett1\Desktop\amartinouellett1\CMPE 2300\LABs\Lab01_AndresMOuellette\Lab01_AndresMOuellette\obj\Debug\Lab01_AndresMOuellette.Properties.Resources.resources
+C:\Users\amartinouellett1\Desktop\amartinouellett1\CMPE 2300\LABs\Lab01_AndresMOuellette\Lab01_AndresMOuellette\obj\Debug\Lab01_AndresMOuellette.csproj.GenerateResource.Cache
+C:\Users\amartinouellett1\Desktop\amartinouellett1\CMPE 2300\LABs\Lab01_AndresMOuellette\Lab01_AndresMOuellette\obj\Debug\Lab01_AndresMOuellette.exe
+C:\Users\amartinouellett1\Desktop\amartinouellett1\CMPE 2300\LABs\Lab01_AndresMOuellette\Lab01_AndresMOuellette\obj\Debug\Lab01_AndresMOuellette.pdb

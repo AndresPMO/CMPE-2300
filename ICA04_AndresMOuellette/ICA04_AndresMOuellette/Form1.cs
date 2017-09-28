@@ -20,7 +20,14 @@ namespace ICA04_AndresMOuellette
             InitializeComponent();
 
             MouseWheel += Form1_MouseWheel;
+            Block.canvas.MouseMoveScaled += Canvas_MouseMoveScaled;
         }
+
+        private void Canvas_MouseMoveScaled(Point pos, CDrawer dr)
+        {
+            throw new NotImplementedException(); //change this
+        }
+
         private void Form1_MouseWheel(object sender, MouseEventArgs e)
         {
             if(e.Delta >= 0)
@@ -53,9 +60,13 @@ namespace ICA04_AndresMOuellette
             Text = $"Loaded {blocksAdded} distinct blocks with {blocksRemoved} discards";
 
             Block.Loading = true;
-            for (int x = 0; x < lBlocks.Count; x++)
+            lock (lBlocks)
             {
-                lBlocks[x].ShowBlock();
+                for (int x = 0; x < lBlocks.Count; x++)
+                {
+                    lBlocks[x].ShowBlock();
+                }
+                
             }
             Block.Loading = false;
         }

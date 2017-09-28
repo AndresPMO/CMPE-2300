@@ -39,15 +39,24 @@ namespace ICA04_AndresMOuellette
         {
             _blockColour = RandColor.GetColor();
             _blockSize = size;
-            _blockCoords.X = rand.Next(0, _canvas.ScaledWidth - size);
-            _blockCoords.Y = rand.Next(0, _canvas.ScaledHeight - size);
-            _blockCoords.Width = size;
-            _blockCoords.Height = size;
+            _blockCoords = new Rectangle(rand.Next(0, _canvas.ScaledWidth - size),
+                rand.Next(0, _canvas.ScaledHeight - size), size, size);
+        }
+
+        public Block(Point point, int size)
+        {
+            _blockColour = Color.Transparent;
+            _blockSize = size;
+            _blockCoords = new Rectangle(point.X, point.Y, size, size);
         }
 
         public void ShowBlock()
         {
-            _canvas.AddRectangle(_blockCoords.X, _blockCoords.Y, _blockSize, _blockSize, _blockColour); //add the highlight thing later
+            int highLight = 0;
+            if (_highlightFlag)
+                highLight = 1;
+            _canvas.AddRectangle(_blockCoords.X, _blockCoords.Y, _blockSize, _blockSize,
+                _blockColour, highLight, Color.Yellow);
         }
 
         public static bool Loading

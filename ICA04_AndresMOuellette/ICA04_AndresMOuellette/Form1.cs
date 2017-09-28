@@ -19,5 +19,10 @@ namespace ICA04_AndresMOuellette
 
             MouseWheel += Form1_MouseWheel;
         }
+
+        private void button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

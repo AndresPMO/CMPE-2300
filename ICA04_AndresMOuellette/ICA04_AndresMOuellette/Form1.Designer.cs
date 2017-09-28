@@ -42,6 +42,7 @@
             this.button.TabIndex = 0;
             this.button.Text = "Add Blocks: Size - 50";
             this.button.UseVisualStyleBackColor = true;
+            this.button.Click += new System.EventHandler(this.button_Click);
             // 
             // progressBar
             // 

@@ -21,7 +21,7 @@ namespace ICA04_AndresMOuellette
         private int _blockSize;
         public int blockSize
         {
-            set { Math.Abs(value); }
+            set { _blockSize = Math.Abs(value); }
         }
 
         private Color _blockColour;
@@ -38,16 +38,23 @@ namespace ICA04_AndresMOuellette
         public Block(int size)
         {
             _blockColour = RandColor.GetColor();
-            _blockSize = size;
-            _blockCoords = new Rectangle(rand.Next(0, _canvas.ScaledWidth - size),
-                rand.Next(0, _canvas.ScaledHeight - size), size, size);
+            blockSize = size;
+            _blockCoords = new Rectangle(rand.Next(0, _canvas.ScaledWidth - _blockSize),
+                rand.Next(0, _canvas.ScaledHeight - _blockSize), _blockSize, _blockSize);
         }
 
         public Block(Point point, int size)
         {
             _blockColour = Color.Transparent;
-            _blockSize = size;
-            _blockCoords = new Rectangle(point.X, point.Y, size, size);
+            blockSize = size;
+            _blockCoords = new Rectangle(point.X - (_blockSize / 2), point.Y - (_blockSize / 2), _blockSize, _blockSize);
+            _highlightFlag = true;
+        }
+        public Block(Block blockIn)
+        {
+            _blockColour = blockIn._blockColour;
+            _blockSize = blockIn._blockSize + 2;
+            _blockCoords = new Rectangle(blockIn._blockCoords.X - 1, blockIn._blockCoords.Y - 1, _blockSize, _blockSize);
         }
 
         public void ShowBlock()

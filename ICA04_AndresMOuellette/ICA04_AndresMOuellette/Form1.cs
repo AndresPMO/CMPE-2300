@@ -27,30 +27,23 @@ namespace ICA04_AndresMOuellette
 
         private void Canvas_MouseLeftClickScaled(Point pos, CDrawer dr)
         {
-            lock (lBlocks)
-            {
                 if (false)
                 {
                     bool flagged = true;
                     while (flagged)
                     {
-                        //if (lBlocks.Count > 0)
-                        //{
                         flagged = false;
-                        for (int i = 0; i < lBlocks.Count(); i++)
+                        lock (lBlocks)
                         {
-                            if (lBlocks[i].Equals(mouseBlock))
+                            for (int i = 0; i < lBlocks.Count(); i++)
                             {
-                                lBlocks.RemoveAt(i);
-                                flagged = true;
+                                if (lBlocks[i].Equals(mouseBlock))
+                                {
+                                    lBlocks.RemoveAt(i);
+                                    flagged = true;
+                                }
                             }
-
                         }
-                        //}
-                        //else
-                        //{
-                        //    flagged = false;
-                        //}
                     }
                     Block.Loading = true;
                     lock (lBlocks)
@@ -66,31 +59,31 @@ namespace ICA04_AndresMOuellette
                 {
                     while (lBlocks.Remove(mouseBlock)) ;
                 }
-            }
         }
 
         private void Canvas_MouseMoveScaled(Point pos, CDrawer dr)
         {
+            mouseBlock = new Block(pos, blockSize);
             lock (lBlocks)
             {
-                mouseBlock = new Block(pos, blockSize);
+
                 for (int i = 0; i < lBlocks.Count(); i++)
                 {
                     lBlocks[i]._highlightFlag = false;
                     if (mouseBlock.Equals(lBlocks[i]))
                         lBlocks[i]._highlightFlag = true;
                 }
-                Block.Loading = true;
-                //lock (lBlocks)
-                {
-                    for (int x = 0; x < lBlocks.Count; x++)
-                    {
-                        lBlocks[x].ShowBlock();
-                    }
-                }
-                mouseBlock.ShowBlock();
-                Block.Loading = false;
             }
+            Block.Loading = true;
+            lock (lBlocks)
+            {
+                for (int x = 0; x < lBlocks.Count; x++)
+                {
+                    lBlocks[x].ShowBlock();
+                }
+            }
+            mouseBlock.ShowBlock();
+            Block.Loading = false;
         }
 
 
@@ -109,32 +102,35 @@ namespace ICA04_AndresMOuellette
             int blocksAdded = 0;
             int blocksRemoved = 0;
             Block tempBlock;
-            lock (lBlocks)
-            {
+            
                 while (blocksAdded < 25 && blocksRemoved < 1000)
                 {
-                    tempBlock = new Block(blockSize);
-                    if (lBlocks.IndexOf(tempBlock) >= 0)
+                    lock (lBlocks)
                     {
-                        blocksRemoved++;
-                    }
-                    else
-                    {
-                        lBlocks.Add(tempBlock);
-                        blocksAdded++;
+                        tempBlock = new Block(blockSize);
+                        if (lBlocks.IndexOf(tempBlock) >= 0)
+                        {
+                            blocksRemoved++;
+                        }
+                        else
+                        {
+                            lBlocks.Add(tempBlock);
+                            blocksAdded++;
+                        }
                     }
                 }
 
                 progressBar.Value = blocksRemoved;
 
                 Block.Loading = true;
-
-                for (int x = 0; x < lBlocks.Count; x++)
+                lock (lBlocks)
                 {
-                    lBlocks[x].ShowBlock();
+                    for (int x = 0; x < lBlocks.Count; x++)
+                    {
+                        lBlocks[x].ShowBlock();
+                    }
                 }
                 Block.Loading = false;
-            }
             Text = $"Loaded {blocksAdded} distinct blocks with {blocksRemoved} discards";
         }
 
@@ -164,15 +160,11 @@ namespace ICA04_AndresMOuellette
                         }
                     }
                     Block.Loading = true;
-                    lock (lBlocks)
+                    for (int x = 0; x < lBlocks.Count; x++)
                     {
-                        for (int x = 0; x < lBlocks.Count; x++)
-                        {
-                            lBlocks[x].ShowBlock();
-                        }
+                        lBlocks[x].ShowBlock();
                     }
                     Block.Loading = false;
-
                 }
                 while (changed);
             }

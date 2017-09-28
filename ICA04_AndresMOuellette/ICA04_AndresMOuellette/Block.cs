@@ -10,15 +10,13 @@ namespace ICA04_AndresMOuellette
 {
     class Block
     {
-        private static CDrawer _canvas;
+        private static CDrawer _canvas = null;
         public static CDrawer canvas
         {
             get { return (_canvas); }
         }
 
         private static Random rand = new Random();
-
-        private Point _location;
 
         private int _blockSize;
         public int blockSize
@@ -41,14 +39,15 @@ namespace ICA04_AndresMOuellette
         {
             _blockColour = RandColor.GetColor();
             _blockSize = size;
-            _location.X = rand.Next(size / 2, 801 - (size / 2));
-            _location.Y = rand.Next(size / 2, 601 - (size / 2));
-            //need to put the cross-over thing here
+            _blockCoords.X = rand.Next(0, _canvas.ScaledWidth - size);
+            _blockCoords.Y = rand.Next(0, _canvas.ScaledHeight - size);
+            _blockCoords.Width = size;
+            _blockCoords.Height = size;
         }
 
         public void ShowBlock()
         {
-            _canvas.AddRectangle(_location.X, _location.Y, _blockSize, _blockSize); //add the highlight thing later
+            _canvas.AddRectangle(_blockCoords.X, _blockCoords.Y, _blockSize, _blockSize, _blockColour); //add the highlight thing later
         }
 
         public static bool Loading
@@ -64,12 +63,17 @@ namespace ICA04_AndresMOuellette
 
         public override bool Equals(object obj)
         {
-            //supply true if (block)obj would "touch" another
-            //use utility method in the Rectangle class called IntersectsWith()
-            if (this.IntersectsWith(obj))
+            if (obj is Block)
             {
-                return true;
+                Block tempBlock = (Block)obj;
+                return (this._blockCoords.IntersectsWith(tempBlock._blockCoords));
             }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return 1;
         }
     }
 }

@@ -36,9 +36,10 @@
             // 
             this.button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button.Location = new System.Drawing.Point(12, 14);
+            this.button.Location = new System.Drawing.Point(18, 22);
+            this.button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(260, 37);
+            this.button.Size = new System.Drawing.Size(499, 57);
             this.button.TabIndex = 0;
             this.button.Text = "Add Blocks: Size - 50";
             this.button.UseVisualStyleBackColor = true;
@@ -48,20 +49,21 @@
             // 
             this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar.Location = new System.Drawing.Point(12, 57);
+            this.progressBar.Location = new System.Drawing.Point(18, 89);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.progressBar.Maximum = 1000;
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(260, 23);
+            this.progressBar.Size = new System.Drawing.Size(499, 35);
             this.progressBar.TabIndex = 1;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 92);
+            this.ClientSize = new System.Drawing.Size(526, 138);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.button);
-            this.MaximumSize = new System.Drawing.Size(300, 131);
-            this.MinimumSize = new System.Drawing.Size(300, 131);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

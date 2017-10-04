@@ -8,7 +8,7 @@ using GDIDrawer;
 
 namespace CIA05_AndresMOuellette
 {
-    class Ball
+    class Ball : IComparable
     {
         private static CDrawer _canvas = null;
         public static CDrawer canvas //is this necessary?
@@ -27,10 +27,11 @@ namespace CIA05_AndresMOuellette
         private Color _ballColour;
 
         private Point _pointF;
+        
+        public bool _highlightFlag { get; set; } //is necessary?
 
         public enum eSortType { eRadius, eDistance, eColour }
-        public bool _highlightFlag { get; set; } //is necessary?
-        public static eSortType _howSorting{ get; set; }
+        public static eSortType eSort{ get; set; }
 
         static Ball()
         {
@@ -65,10 +66,36 @@ namespace CIA05_AndresMOuellette
             if (obj is Ball)
             {
                 Ball tempBall = (Ball)obj;
-                return (this._blockCoords.IntersectsWith(tempBlock._blockCoords));
+                return (this._pointF.CompareTo(tempBall._pointF));
             }
             return false;
         }
+
+        public float CompareTo(object inBall)
+        {
+            if (!(inBall is Ball))
+                throw new ArgumentException("Not a valid Ball or null");
+            Ball tempBall = inBall as Ball;
+            Ball origin = new Ball(1);
+            origin._pointF.X = 0;
+            origin._pointF.Y = 0;
+
+            float outCompare = 0;
+            switch (eSort)
+            {
+                case eSortType.eRadius:
+                    outCompare = _radius - tempBall._radius;
+                    break;
+                case eSortType.eDistance:
+                    outCompare = (_pointF.X * _pointF.Y) - (tempBall._pointF.X * tempBall._pointF.Y);
+                    break;
+                case eSortType.eColour:
+                    outCompare = _ballColour.ToArgb() - tempBall._ballColour.ToArgb();
+                    break;
+            }
+            return outCompare;
+        }
+
         public override int GetHashCode()
         {
             return 1;

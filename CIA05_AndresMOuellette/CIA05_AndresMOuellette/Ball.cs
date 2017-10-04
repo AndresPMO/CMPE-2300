@@ -21,12 +21,17 @@ namespace CIA05_AndresMOuellette
         private float _radius;
         public float radius
         {
-            set { Math.Abs(value); }
+            set
+            {
+                if (value == 0)
+                    value = 1;
+                _radius = Math.Abs(value);
+            }
         }
 
         private Color _ballColour;
 
-        private Point _pointF;
+        private PointF _pointF;
         
         public bool _highlightFlag { get; set; } //is necessary?
 
@@ -43,8 +48,12 @@ namespace CIA05_AndresMOuellette
         {
             _ballColour = RandColor.GetColor();
             radius = size;
-            _pointF.X = rand.Next(0, _canvas.ScaledWidth - size);  //these cant be radius bc missing
-            _pointF.Y = rand.Next(0, _canvas.ScaledHeight - size); //the GET, _radius is private
+            _pointF = new PointF(rand.Next((int)_radius, _canvas.ScaledWidth - (int)_radius), rand.Next((int)_radius, _canvas.ScaledHeight - (int)_radius));
+        }
+
+        public Ball() //does it have to be float?
+        {
+            _pointF = new PointF(0, 0);
         }
         public static bool Loading
         {
@@ -58,20 +67,17 @@ namespace CIA05_AndresMOuellette
         }
         public void ShowBall()
         {
-            _canvas.AddEllipse(_pointF.X, _pointF.Y, (int)_radius, (int)_radius, _ballColour);
+            _canvas.AddCenteredEllipse((int)_pointF.X, (int)_pointF.Y, (int)_radius * 2, (int)_radius * 2, _ballColour);
         }
 
         public override bool Equals(object obj)
         {
-            if (obj is Ball)
-            {
-                Ball tempBall = (Ball)obj;
-                if (this.CompareTo(tempBall) > 0)
-                {
+            if (!(obj is Ball)) return false;
+            Ball tempBall = obj as Ball;
 
-                }
-            }
-            return false;
+            float distance = this.GetDistance(tempBall);
+
+            return (distance <= this._radius + tempBall._radius);
         }
 
         public int CompareTo(object inBall)
@@ -79,30 +85,29 @@ namespace CIA05_AndresMOuellette
             if (!(inBall is Ball))
                 throw new ArgumentException("Not a valid Ball or null");
             Ball tempBall = inBall as Ball;
-            Ball origin = new Ball(1);
-            origin._pointF.X = 0;
-            origin._pointF.Y = 0;
+            Ball origin = new Ball();
 
-            float outCompare = 0;
+            int outCompare;
             switch (eSort)
             {
                 case eSortType.eRadius:
-                    outCompare = this._radius - tempBall._radius;
+                    outCompare = this._radius.CompareTo(tempBall._radius);
                     break;
                 case eSortType.eDistance:
-                    outCompare = this.GetDistance(origin) - tempBall.GetDistance(origin);
+                    outCompare = this.GetDistance(origin).CompareTo(tempBall.GetDistance(origin));
                     break;
                 case eSortType.eColour:
-                    outCompare = this._ballColour.ToArgb() - tempBall._ballColour.ToArgb();
+                    outCompare = this._ballColour.ToArgb().CompareTo(tempBall._ballColour.ToArgb());
                     break;
+                default:
+                    throw new Exception("Unable to find Sort Type");
             }
-            return (int)outCompare;
+            return outCompare;
         }
 
-        public float GetDistance(object inBall) // |srt((x2 - x1)^2 + (y2 - y1)^2)|
+        public float GetDistance(Ball inBall) // |srt((x2 - x1)^2 + (y2 - y1)^2)|
         {
-            Ball tempBall = inBall as Ball;
-            return (float)(Math.Abs(Math.Sqrt(Math.Pow((tempBall._pointF.X - this._pointF.X), 2) + Math.Pow((tempBall._pointF.Y - this._pointF.Y), 2))));
+            return (float)(Math.Abs(Math.Sqrt(Math.Pow((inBall._pointF.X - this._pointF.X), 2) + Math.Pow((inBall._pointF.Y - this._pointF.Y), 2))));
         }
 
         public override int GetHashCode()

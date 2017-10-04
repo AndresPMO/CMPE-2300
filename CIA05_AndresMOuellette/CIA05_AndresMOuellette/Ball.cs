@@ -66,12 +66,15 @@ namespace CIA05_AndresMOuellette
             if (obj is Ball)
             {
                 Ball tempBall = (Ball)obj;
-                return (this._pointF.CompareTo(tempBall._pointF));
+                if (this.CompareTo(tempBall) > 0)
+                {
+
+                }
             }
             return false;
         }
 
-        public float CompareTo(object inBall)
+        public int CompareTo(object inBall)
         {
             if (!(inBall is Ball))
                 throw new ArgumentException("Not a valid Ball or null");
@@ -84,16 +87,22 @@ namespace CIA05_AndresMOuellette
             switch (eSort)
             {
                 case eSortType.eRadius:
-                    outCompare = _radius - tempBall._radius;
+                    outCompare = this._radius - tempBall._radius;
                     break;
                 case eSortType.eDistance:
-                    outCompare = (_pointF.X * _pointF.Y) - (tempBall._pointF.X * tempBall._pointF.Y);
+                    outCompare = this.GetDistance(origin) - tempBall.GetDistance(origin);
                     break;
                 case eSortType.eColour:
-                    outCompare = _ballColour.ToArgb() - tempBall._ballColour.ToArgb();
+                    outCompare = this._ballColour.ToArgb() - tempBall._ballColour.ToArgb();
                     break;
             }
-            return outCompare;
+            return (int)outCompare;
+        }
+
+        public float GetDistance(object inBall) // |srt((x2 - x1)^2 + (y2 - y1)^2)|
+        {
+            Ball tempBall = inBall as Ball;
+            return (float)(Math.Abs(Math.Sqrt(Math.Pow((tempBall._pointF.X - this._pointF.X), 2) + Math.Pow((tempBall._pointF.Y - this._pointF.Y), 2))));
         }
 
         public override int GetHashCode()

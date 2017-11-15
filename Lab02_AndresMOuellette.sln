@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab02_AndresMOuellette", "Lab02_AndresMOuellette\Lab02_AndresMOuellette.csproj", "{0B175461-CF0B-468F-A8F3-ACC9447BB115}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B175461-CF0B-468F-A8F3-ACC9447BB115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B175461-CF0B-468F-A8F3-ACC9447BB115}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B175461-CF0B-468F-A8F3-ACC9447BB115}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B175461-CF0B-468F-A8F3-ACC9447BB115}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B1EA496A-99CD-4A78-928A-1FC7FE7D16EB}
+	EndGlobalSection
+EndGlobal

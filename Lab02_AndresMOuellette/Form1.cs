@@ -186,9 +186,10 @@ namespace Lab02_AndresMOuellette
         /// </summary>
         private void LibraryListInstall()
         {
-            bool install = false;
+            bool install;
             do
             {
+                install = false;
                 foreach (Package uninstallablePack in lUninstallablePacks)
                 {
                     if (uninstallablePack.lPackDependencies.Count == 0)
@@ -216,9 +217,10 @@ namespace Lab02_AndresMOuellette
         /// </summary>
         private void SortedListInstall()
         {
-            bool install = false;
+            bool install;
             do
             {
+                install = false;
                 foreach (Package uninstallablePack in lUninstallablePacks)
                 {
                     if (uninstallablePack.lPackDependencies.Count == 0)
@@ -299,6 +301,41 @@ namespace Lab02_AndresMOuellette
         {
             lInstallablePacks.Sort();
             return pack.lPackDependencies.TrueForAll(dependancy => lInstallablePacks.BinarySearch(new Package(new[] { dependancy })) >= 0);
+        }
+
+        private void listView_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if(e.Column == 0)
+            {
+                if(TSListViewComboBox.SelectedIndex == 0)
+                {
+                    lLoadedPacks.Sort(); //Package.CompareCountbyName
+                }
+                else if(TSListViewComboBox.SelectedIndex == 1)
+                {
+                    lInstallablePacks.Sort(); //Package.CompareCountbyName
+                }
+                else
+                {
+                    lUninstallablePacks.Sort(); //Package.CompareCountbyName
+                }
+            }
+            else if(e.Column == 1)
+            {
+                if (TSListViewComboBox.SelectedIndex == 0)
+                {
+                    lLoadedPacks.Sort(); //Package.CompareNamebyCount
+                }
+                else if (TSListViewComboBox.SelectedIndex == 1)
+                {
+                    lInstallablePacks.Sort(); //Package.CompareNamebyCount
+                }
+                else
+                {
+                    lUninstallablePacks.Sort(); //Package.CompareNamebyCount
+                }
+            }
+            ShowSelectedLoad();
         }
     }
 }

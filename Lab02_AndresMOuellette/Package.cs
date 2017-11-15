@@ -19,7 +19,7 @@ namespace Lab02_AndresMOuellette
             {
                 if (!(lPackDependencies.Contains(sArray[x])))
                 {
-                    lPackDependencies.Add(sArray[x]);
+                    _lPackDependencies.Add(sArray[x]);
                 }
             }
         }
@@ -41,14 +41,9 @@ namespace Lab02_AndresMOuellette
         public override string ToString()
         {
             string tempString = "";
-            for(int i = 0; i < lPackDependencies.Count; i++)
-            {
-                if(i == lPackDependencies.Count - 1)
-                {
-                    tempString += lPackDependencies[i];
-                }
-                tempString += $"{lPackDependencies[i]}, ";
-            }
+
+            _lPackDependencies.ForEach(element => tempString += (element + ", "));
+
             return tempString;
         }
 
@@ -58,11 +53,8 @@ namespace Lab02_AndresMOuellette
             {
                 throw new ArgumentException("Not a valid Package or null.");
             }
-            else
-            {
-                Package tempPack = obj as Package;
-                return _name.CompareTo(tempPack._name);
-            }
+            Package tempPack = obj as Package;
+            return _name.CompareTo(tempPack._name);
         }
         public static int CompareCountbyName(Package pack1, Package pack2)
         {

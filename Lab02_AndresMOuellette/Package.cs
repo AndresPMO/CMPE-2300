@@ -60,8 +60,8 @@ namespace Lab02_AndresMOuellette
             }
             else
             {
-                string tempName = obj as string;
-                return _name.CompareTo(tempName);
+                Package tempPack = obj as Package;
+                return _name.CompareTo(tempPack._name);
             }
         }
         public static int CompareCountbyName(Package pack1, Package pack2)

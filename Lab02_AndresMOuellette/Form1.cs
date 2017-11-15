@@ -45,6 +45,7 @@ namespace Lab02_AndresMOuellette
 
                 //Split all lines in file, then split package dependancies from said lines
                 //If pack doesnt exist, make anew one. If it does, add non-existant dependancies
+                //to already existing dependancies
                 string[] allLines = System.IO.File.ReadAllLines(openFileDialog.FileName);
                 string[] packInput;
                 Package tempPack; 
@@ -166,7 +167,7 @@ namespace Lab02_AndresMOuellette
                     }
                     
                     //(3)
-                    if (RawListInstall(uninstallablePack))
+                    else if (RawListInstall(uninstallablePack))
                     {
                         lInstallablePacks.Add(uninstallablePack);
                         install = true;

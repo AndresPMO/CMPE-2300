@@ -41,7 +41,7 @@ namespace Lab02_AndresMOuellette
         public override string ToString()
         {
             string tempString = "";
-            for(int i = 0; i < lPackDependencies.Count - 1; i++)
+            for(int i = 0; i < lPackDependencies.Count; i++)
             {
                 if(i == lPackDependencies.Count - 1)
                 {
@@ -54,9 +54,9 @@ namespace Lab02_AndresMOuellette
 
         public int CompareTo(object obj)
         {
-            if(!(obj is string))
+            if(!(obj is Package))
             {
-                throw new ArgumentException("Not a valid name or null.");
+                throw new ArgumentException("Not a valid Package or null.");
             }
             else
             {
@@ -93,16 +93,8 @@ namespace Lab02_AndresMOuellette
             {
                 throw new ArgumentException("Names are not the same.");
             }
-            else
-            {
-                for (int x = 1; x < inPack.lPackDependencies.Count; x++)
-                {
-                    if (!(lPackDependencies.Contains(inPack.lPackDependencies[x])))
-                    {
-                        lPackDependencies.Add(inPack.lPackDependencies[x]);
-                    }
-                }
-            }
+
+            _lPackDependencies = lPackDependencies.Union(inPack.lPackDependencies).ToList();
         }
     }
 }
